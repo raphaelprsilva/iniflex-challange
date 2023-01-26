@@ -1,4 +1,4 @@
-package br.com.raphael.funcionarios.model;
+package br.com.iniflex.funcionarios.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
