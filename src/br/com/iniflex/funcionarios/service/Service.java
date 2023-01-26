@@ -25,4 +25,8 @@ public class Service {
         employeeList.addAll(employees);
     }
 
+    public void removeByName(String name) {
+        employeeList.removeIf(employee -> employee.getName().equals(name));
+    }
+
 }

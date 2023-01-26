@@ -13,6 +13,7 @@ public class Main {
 
         try {
             employeesService.setAll(employees);
+            employeesService.removeByName("João");
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
