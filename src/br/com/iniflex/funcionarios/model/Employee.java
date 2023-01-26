@@ -1,7 +1,9 @@
-package br.com.raphael.funcionarios.model;
+package br.com.iniflex.funcionarios.model;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Employee extends Person {
@@ -26,12 +28,27 @@ public class Employee extends Person {
         return role;
     }
 
+    public static String formatDate(LocalDate date) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return date.format(dateTimeFormatter);
+    }
+
+    static String formatSalary(BigDecimal salary) {
+        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+        return decimalFormat.format(salary);
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "salario=" + salary +
-                ", funcao='" + role + '\'' +
-                '}';
+        return String.format("Pessoa Funcionária: %s%n" +
+                        "Data de Nascimento: %s%n" +
+                        "Salário: %s%n" +
+                        "Função: %s%n",
+                this.getName(),
+                Employee.formatDate(this.getBirthDate()),
+                Employee.formatSalary(this.getSalary()),
+                this.getRole()
+        );
     }
 
     @Override
