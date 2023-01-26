@@ -29,4 +29,8 @@ public class Service {
         employeeList.removeIf(employee -> employee.getName().equals(name));
     }
 
+    public void printAll() {
+        employeeList.forEach(System.out::println);
+    }
+
 }

@@ -14,6 +14,7 @@ public class Main {
         try {
             employeesService.setAll(employees);
             employeesService.removeByName("João");
+            employeesService.printAll();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
