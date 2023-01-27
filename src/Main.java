@@ -50,6 +50,7 @@ public class Main {
 
     private static class Menu {
         public static int show() {
+            System.out.println("--- Menu ---");
             System.out.println("1 - Listar todos os funcionários");
             System.out.println("2 - Remover funcionário \"João\"");
             System.out.println("3 - Aumentar salário de todos os funcionários em 10%");
@@ -60,6 +61,7 @@ public class Main {
             System.out.println("8 - Somar todos os salários");
             System.out.println("9 - Listar salários por funcionário");
             System.out.println("10 - Sair");
+            System.out.println("---");
             System.out.print("Opção: ");
             return new Scanner(System.in).nextInt();
         }
