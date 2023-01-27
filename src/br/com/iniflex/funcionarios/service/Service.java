@@ -3,6 +3,7 @@ package br.com.iniflex.funcionarios.service;
 import br.com.iniflex.funcionarios.model.Employee;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -125,5 +126,15 @@ public class Service {
         System.out.println("Soma de todos os salários:");
         BigDecimal allSalariesSummed = sumAllSalaries();
         System.out.printf("R$ %.2f%n", allSalariesSummed);
+    }
+
+    public void printSalariesByEmployee() {
+        System.out.println("Quantidade de salários mínimos por funcionário:");
+        for (Employee employee : employeeList) {
+            BigDecimal minimumWage = new BigDecimal("1212.00");
+            BigDecimal employeeSalary = employee.getSalary();
+            BigDecimal minimumWagesQuantity = employeeSalary.divide(minimumWage, 1, RoundingMode.HALF_UP);
+            System.out.printf("%s: %.2f salários mínimos%n", employee.getName(), minimumWagesQuantity);
+        }
     }
 }

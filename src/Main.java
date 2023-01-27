@@ -22,6 +22,7 @@ public class Main {
             employeesService.printOldestEmployee();
             employeesService.printEmployeesByAlphabeticalOrder();
             employeesService.printSumAllSalaries();
+            employeesService.printSalariesByEmployee();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
