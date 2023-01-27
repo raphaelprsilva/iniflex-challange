@@ -19,6 +19,7 @@ public class Main {
             var groupedEmployees = employeesService.groupByRole();
             employeesService.printGroupedEmployees(groupedEmployees);
             employeesService.printEmployeesBirthDateBetweenMonths(10, 12);
+            employeesService.printOldestEmployee();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
