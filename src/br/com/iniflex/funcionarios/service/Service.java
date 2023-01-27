@@ -2,6 +2,7 @@ package br.com.iniflex.funcionarios.service;
 
 import br.com.iniflex.funcionarios.model.Employee;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Service {
@@ -33,4 +34,12 @@ public class Service {
         employeeList.forEach(System.out::println);
     }
 
+    public void increaseAllSalaries(double percentage) {
+        employeeList
+            .forEach(employee ->
+                employee.setSalary(
+                        employee.getSalary()
+                                .add(employee.getSalary().multiply(BigDecimal.valueOf(percentage))))
+                );
+    }
 }
