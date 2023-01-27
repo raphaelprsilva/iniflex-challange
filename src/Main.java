@@ -14,11 +14,12 @@ public class Main {
         try {
             employeesService.setAll(employees);
             employeesService.removeByName("João");
-            employeesService.printAll();
+//            employeesService.printAll();
             employeesService.increaseAllSalaries(0.1);
             var groupedEmployees = employeesService.groupByRole();
-            employeesService.printGroupedEmployees(groupedEmployees);
-            employeesService.printEmployeesBirthDateBetweenMonths(10, 12);
+//            employeesService.printGroupedEmployees(groupedEmployees);
+//            employeesService.printEmployeesBirthDateBetweenMonths(10, 12);
+            employeesService.printOldestEmployee();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
