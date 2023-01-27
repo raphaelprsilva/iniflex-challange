@@ -3,7 +3,6 @@ package br.com.iniflex.funcionarios.service;
 import br.com.iniflex.funcionarios.model.Employee;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.*;
 
 public class Service {
@@ -83,37 +82,5 @@ public class Service {
     public void printEmployeesBirthDateBetweenMonths(int month1, int month2) {
         System.out.printf("Funcionários nascidos entre os meses %d e %d:%n", month1, month2);
         getEmployeesBirthDateBetweenMonths(month1, month2).forEach(System.out::println);
-    }
-
-    private Employee getOldestEmployee() {
-        return employeeList.stream()
-                .min(Comparator.comparing(Employee::getBirthDate))
-                .orElseThrow(NoSuchElementException::new);
-    }
-
-    public void printOldestEmployee() {
-        System.out.println("Funcionário mais velho:");
-
-        String employeeName = getOldestEmployee().getName();
-        System.out.printf("Nome: %s%n", employeeName);
-
-        Integer currentYear = LocalDate.now().getYear();
-        Integer employeeBirthDate = getOldestEmployee().getBirthDate().getYear();
-        Integer employeeAge = currentYear - employeeBirthDate;
-        System.out.printf("Idade: %s%n", employeeAge);
-    }
-
-    private List<Employee> getEmployeesWithSalaryBetween(BigDecimal salary1, BigDecimal salary2) {
-        List<Employee> employees = new ArrayList<>();
-        employeeList.forEach(employee -> {
-            boolean isEmployeeSalaryGreaterThan = employee.getSalary().compareTo(salary1) >= 0;
-            boolean isEmployeeSalaryLowerThan = employee.getSalary().compareTo(salary2) <= 0;
-            boolean isSalaryBetweenSalary1AndSalary2 = isEmployeeSalaryGreaterThan && isEmployeeSalaryLowerThan;
-
-            if (isSalaryBetweenSalary1AndSalary2) {
-                employees.add(employee);
-            }
-        });
-        return employees;
     }
 }
