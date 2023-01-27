@@ -31,6 +31,7 @@ public class Service {
 
     public void removeByName(String name) {
         employeeList.removeIf(employee -> employee.getName().equals(name));
+        System.out.printf("Funcionário %s removido com sucesso!%n%n", name);
     }
 
     public void printAll() {
