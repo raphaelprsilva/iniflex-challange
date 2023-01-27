@@ -5,6 +5,7 @@ import br.com.iniflex.funcionarios.model.Employee;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Service {
 
@@ -101,5 +102,16 @@ public class Service {
         Integer employeeBirthDate = getOldestEmployee().getBirthDate().getYear();
         Integer employeeAge = currentYear - employeeBirthDate;
         System.out.printf("Idade: %s%n", employeeAge);
+    }
+
+    private List<Employee> getEmployeesByAlphabeticalOrder() {
+        return employeeList.stream()
+            .sorted(Comparator.comparing(Employee::getName))
+            .collect(Collectors.toList());
+    }
+
+    public void printEmployeesByAlphabeticalOrder() {
+        System.out.println("Funcionários em ordem alfabética:");
+        getEmployeesByAlphabeticalOrder().forEach(System.out::println);
     }
 }

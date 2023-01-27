@@ -20,6 +20,7 @@ public class Main {
             employeesService.printGroupedEmployees(groupedEmployees);
             employeesService.printEmployeesBirthDateBetweenMonths(10, 12);
             employeesService.printOldestEmployee();
+            employeesService.printEmployeesByAlphabeticalOrder();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
