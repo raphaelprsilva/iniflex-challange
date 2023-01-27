@@ -36,10 +36,10 @@ public class Service {
 
     public void increaseAllSalaries(double percentage) {
         employeeList
-            .forEach(employee ->
-                employee.setSalary(
-                        employee.getSalary()
-                                .add(employee.getSalary().multiply(BigDecimal.valueOf(percentage))))
+                .forEach(employee ->
+                        employee.setSalary(
+                                employee.getSalary()
+                                        .add(employee.getSalary().multiply(BigDecimal.valueOf(percentage))))
                 );
     }
 
@@ -63,5 +63,24 @@ public class Service {
         groupedByRole.forEach((role, employees) -> {
             employees.forEach(System.out::println);
         });
+    }
+
+    private List<Employee> getEmployeesBirthDateBetweenMonths(int month1, int month2) {
+        List<Employee> employees = new ArrayList<>();
+        employeeList.forEach(employee -> {
+            boolean isEmployeeMonthValueGreaterThan = employee.getBirthDate().getMonthValue() >= month1;
+            boolean isEmployeeMonthValueLowerThan = employee.getBirthDate().getMonthValue() <= month2;
+            boolean isBirthDatesBetweenMonth1AndMonth2 = isEmployeeMonthValueGreaterThan && isEmployeeMonthValueLowerThan;
+
+            if (isBirthDatesBetweenMonth1AndMonth2) {
+                employees.add(employee);
+            }
+        });
+        return employees;
+    }
+
+    public void printEmployeesBirthDateBetweenMonths(int month1, int month2) {
+        System.out.printf("Funcionários nascidos entre os meses %d e %d:%n", month1, month2);
+        getEmployeesBirthDateBetweenMonths(month1, month2).forEach(System.out::println);
     }
 }
