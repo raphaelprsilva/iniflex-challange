@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="teste-iniflex:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/teste_iniflex_jar</output-path>
+    <root id="archive" name="teste-iniflex.jar">
+      <element id="module-output" name="teste-iniflex" />
+    </root>
+  </artifact>
+</component>
