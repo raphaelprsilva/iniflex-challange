@@ -16,6 +16,8 @@ public class Main {
             employeesService.removeByName("João");
             employeesService.printAll();
             employeesService.increaseAllSalaries(0.1);
+            var groupedEmployees = employeesService.groupByRole();
+            employeesService.printGroupedEmployees(groupedEmployees);
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }

@@ -42,4 +42,26 @@ public class Service {
                                 .add(employee.getSalary().multiply(BigDecimal.valueOf(percentage))))
                 );
     }
+
+    public Map<String, List<Employee>> groupByRole() {
+        Map<String, List<Employee>> groupedByRole = new HashMap<>();
+
+        employeeList.forEach(employee -> {
+            if (groupedByRole.containsKey(employee.getRole())) {
+                groupedByRole.get(employee.getRole()).add(employee);
+            } else {
+                List<Employee> employees = new ArrayList<>();
+                employees.add(employee);
+                groupedByRole.put(employee.getRole(), employees);
+            }
+        });
+
+        return groupedByRole;
+    }
+
+    public void printGroupedEmployees(Map<String, List<Employee>> groupedByRole) {
+        groupedByRole.forEach((role, employees) -> {
+            employees.forEach(System.out::println);
+        });
+    }
 }
