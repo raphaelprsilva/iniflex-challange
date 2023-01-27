@@ -114,4 +114,16 @@ public class Service {
         System.out.println("Funcionários em ordem alfabética:");
         getEmployeesByAlphabeticalOrder().forEach(System.out::println);
     }
+
+    private BigDecimal sumAllSalaries() {
+        return employeeList.stream()
+            .map(Employee::getSalary)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public void printSumAllSalaries() {
+        System.out.println("Soma de todos os salários:");
+        BigDecimal allSalariesSummed = sumAllSalaries();
+        System.out.printf("R$ %.2f%n", allSalariesSummed);
+    }
 }

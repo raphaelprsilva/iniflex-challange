@@ -21,6 +21,7 @@ public class Main {
             employeesService.printEmployeesBirthDateBetweenMonths(10, 12);
             employeesService.printOldestEmployee();
             employeesService.printEmployeesByAlphabeticalOrder();
+            employeesService.printSumAllSalaries();
         } catch (Exception e) {
             System.out.println("ParseException: " + e.getMessage());
         }
